@@ -1,6 +1,6 @@
 clinic_home:
     path:      /
-    defaults:  { _controller: OCPlatformBundle:Home:index }
+    defaults:  { _controller: ClinicFrontBundle:Home:index }
 
 clinic_services:
     path:     /services
