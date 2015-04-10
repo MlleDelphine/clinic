@@ -1,0 +1,39 @@
+clinic_home:
+    path:      /
+    defaults:  { _controller: ClinicFrontBundle:Home:index }
+
+clinic_services:
+    path:     /services
+    defaults: { _controller: ClinicFrontBundle:Service:index  }
+
+clinic_products:
+    path:     /products
+    defaults: { _controller: ClinicFrontBundle:Product:index  }
+
+clinic_planning:
+    path:     /planning
+    defaults: { _controller: ClinicFrontBundle:Planning:index  }
+
+clinic_team:
+    path:     /team
+    defaults: { _controller: ClinicFrontBundle:Team:index  }
+
+clinic_gallery:
+    path:     /gallery
+    defaults: { _controller: ClinicFrontBundle:Pictures:index  }
+
+clinic_actu:
+    path:     /actu
+    defaults: { _controller: ClinicFrontBundle:Actu:index  }
+
+clinic_actu:
+    path:     /actu/view/{slug}
+    defaults: { _controller: ClinicFrontBundle:Actu:view  }
+    requirements:
+        id: \d+
+
+clinic_contact:
+    path:     /contact
+    defaults: { _controller: ClinicFrontBundle:Contact:index  }
+
+

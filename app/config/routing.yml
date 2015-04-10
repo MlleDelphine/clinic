@@ -1,0 +1,4 @@
+clinic_front:
+    resource: "@ClinicFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
