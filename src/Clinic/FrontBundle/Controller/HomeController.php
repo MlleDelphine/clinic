@@ -15,7 +15,12 @@ class HomeController extends Controller{
 
     public function indexAction()
     {
-        return $this->render('ClinicFrontBundle:Home:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $animalRepo = $em->getRepository('ClinicFrontBundle:Animal');
+        $animals = $animalRepo->findAll();
+
+
+        return $this->render('ClinicFrontBundle:Home:index.html.twig', array('animals' => $animals));
     }
 
 }
