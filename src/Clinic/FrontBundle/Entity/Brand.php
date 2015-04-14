@@ -50,7 +50,7 @@ class Brand
     private $products;
 
     /**
-     * @ORM\OneToOne(targetEntity="Sonata\MediaBundle\Entity\Media", cascade={"all"})
+     * @ORM\OneToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
      * @ORM\JoinColumns({
      *     @ORM\JoinColumn(name="picture", referencedColumnName="id")
      * })
@@ -60,7 +60,7 @@ class Brand
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
@@ -143,6 +143,7 @@ class Brand
     {
         return $this->slug;
     }
+
     /**
      * Constructor
      */
@@ -191,7 +192,7 @@ class Brand
      * @param \Sonata\MediaBundle\Entity\Media $picture
      * @return Brand
      */
-    public function setPicture(\Sonata\MediaBundle\Entity\Media $picture = null)
+    public function setPicture(\Application\Sonata\MediaBundle\Entity\Media $picture = null)
     {
         $this->picture = $picture;
 
@@ -201,7 +202,7 @@ class Brand
     /**
      * Get picture
      *
-     * @return \Sonata\MediaBundle\Entity\Media
+     * @return \Application\Sonata\MediaBundle\Entity\Media
      */
     public function getPicture()
     {

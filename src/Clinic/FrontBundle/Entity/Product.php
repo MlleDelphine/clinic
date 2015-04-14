@@ -62,7 +62,7 @@ class Product
     private $slug;
 
     /**
-     * @ORM\OneToOne(targetEntity="Sonata\MediaBundle\Entity\Media", cascade={"all"})
+     * @ORM\OneToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
      * @ORM\JoinColumns({
      *     @ORM\JoinColumn(name="picture", referencedColumnName="id")
      * })
@@ -79,7 +79,7 @@ class Product
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
@@ -243,10 +243,10 @@ class Product
     /**
      * Set picture
      *
-     * @param \Sonata\MediaBundle\Entity\Media $picture
+     * @param \Application\Sonata\MediaBundle\Entity\Media $picture
      * @return Product
      */
-    public function setPicture(\Sonata\MediaBundle\Entity\Media $picture = null)
+    public function setPicture(\Application\Sonata\MediaBundle\Entity\Media $picture = null)
     {
         $this->picture = $picture;
 
@@ -256,7 +256,7 @@ class Product
     /**
      * Get picture
      *
-     * @return \Sonata\MediaBundle\Entity\Media
+     * @return \Application\Sonata\MediaBundle\Entity\Media
      */
     public function getPicture()
     {

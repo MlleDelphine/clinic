@@ -44,7 +44,7 @@ class ProductCategory
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 

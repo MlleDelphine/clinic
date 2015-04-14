@@ -149,6 +149,7 @@ class Brand
     public function __construct()
     {
         $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->created = new \Datetime();
     }
 
     /**
@@ -205,5 +206,28 @@ class Brand
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Brand
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }
