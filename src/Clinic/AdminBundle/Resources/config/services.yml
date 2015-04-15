@@ -1,0 +1,14 @@
+services:
+#    clinic_admin.example:
+#        class: Clinic\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    sonata.admin.brand:
+        class: Clinic\AdminBundle\Admin\Shop\BrandAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Boutique", label: "Marque" }
+        arguments:
+            - ~
+            - Clinic\FrontBundle\Entity\Brand
+            - ~
+        calls:
+            - [ setTranslationDomain, [ClinicFrontBundle]]

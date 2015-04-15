@@ -39,7 +39,7 @@ class Brand
     private $description;
 
     /**
-     * @Gedmo\Slug(fields={"title"})
+     * @Gedmo\Slug(fields={"title"}, separator="-", updatable=true, unique=true)
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;
@@ -51,9 +51,6 @@ class Brand
 
     /**
      * @ORM\OneToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumns({
-     *     @ORM\JoinColumn(name="picture", referencedColumnName="id")
-     * })
      */
     private $picture;
 
@@ -121,18 +118,6 @@ class Brand
         return $this->description;
     }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Brand
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
 
     /**
      * Get slug
@@ -230,5 +215,13 @@ class Brand
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->title;
     }
 }
