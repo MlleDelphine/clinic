@@ -21,7 +21,7 @@
     "sensio/distribution-bundle": "~3.0,>=3.0.12",
     "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
     "incenteev/composer-parameter-handler": "~2.0",
-    "gedmo/doctrine-extensions":      "dev-master",
+    "gedmo/doctrine-extensions":      "~2.4",
     "sonata-project/media-bundle": "*@dev",
     "knplabs/knp-menu": "2.0.*@dev",
     "knplabs/knp-menu-bundle": "dev-master",

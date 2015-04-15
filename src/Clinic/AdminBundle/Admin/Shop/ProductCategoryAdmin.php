@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: Delphine
- * Date: 14/04/2015
- * Time: 14:14
+ * Date: 15/04/2015
+ * Time: 15:29
  */
+
 namespace Clinic\AdminBundle\Admin\Shop;
 
 use Sonata\AdminBundle\Admin\Admin;
@@ -12,20 +13,13 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-
-class BrandAdmin extends Admin{
+class ProductCategoryAdmin extends Admin{
 
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Nom'))
-            ->add('picture', "sonata_media_type", array('provider' => 'sonata.media.provider.image',
-                                                        'context' => 'brand_media',
-                                                        'data_class'   =>  'Application\Sonata\MediaBundle\Entity\Media',
-                                                        'required' => false,
-                                                        'label' => 'Image :'))
-            ->add('description') // if no type is specified, SonataAdminBundle tries to guess it
         ;
     }
 
@@ -34,7 +28,6 @@ class BrandAdmin extends Admin{
     {
         $datagridMapper
             ->add('title')
-            ->add('description')
         ;
     }
 
@@ -44,9 +37,6 @@ class BrandAdmin extends Admin{
         $listMapper
             ->addIdentifier('id')
             ->add('title')
-            ->add('picture', null, array("label" => "Image"))
-            ->add('slug')
-            ->add('description')
             ->add('created')
             ->add('_action', 'actions', array(
                 'actions' => array(

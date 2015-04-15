@@ -121,4 +121,12 @@ class Animal
     {
         return $this->fontcode;
     }
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->title;
+    }
+
 }

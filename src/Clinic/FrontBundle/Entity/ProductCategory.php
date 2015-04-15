@@ -168,4 +168,12 @@ class ProductCategory
     {
         return $this->created;
     }
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->title;
+    }
+
 }

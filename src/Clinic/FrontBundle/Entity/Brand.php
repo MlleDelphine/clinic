@@ -50,7 +50,9 @@ class Brand
     private $products;
 
     /**
+     * @var \Application\Sonata\MediaBundle\Entity\Media
      * @ORM\OneToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
+     * @ORM\Column(nullable=true)
      */
     private $picture;
 

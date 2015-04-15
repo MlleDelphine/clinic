@@ -19,7 +19,6 @@ class HomeController extends Controller{
         $animalRepo = $em->getRepository('ClinicFrontBundle:Animal');
         $animals = $animalRepo->findAll();
 
-
         return $this->render('ClinicFrontBundle:Home:index.html.twig', array('animals' => $animals));
     }
 
