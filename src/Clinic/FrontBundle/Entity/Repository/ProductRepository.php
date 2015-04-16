@@ -12,4 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProductRepository extends EntityRepository
 {
+    /**
+     * @param Category $category
+     * @return array
+     */
+    public function getPublished()
+    {
+        $query = $this->createQueryBuilder('p')
+            ->orderBy('p.created', 'DESC')
+            ->andWhere('p.published = true')
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
+
 }

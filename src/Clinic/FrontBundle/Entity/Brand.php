@@ -50,9 +50,8 @@ class Brand
     private $products;
 
     /**
-     * @var \Application\Sonata\MediaBundle\Entity\Media
-     * @ORM\OneToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\Column(nullable=true)
+     * @var \Clinic\MediaBundle\Entity\Media
+     * @ORM\OneToOne(targetEntity="\Clinic\MediaBundle\Entity\Media", inversedBy="brand", cascade={"all"})
      */
     private $picture;
 
@@ -176,10 +175,10 @@ class Brand
     /**
      * Set picture
      *
-     * @param \Sonata\MediaBundle\Entity\Media $picture
+     * @param \Clinic\MediaBundle\Entity\Media $picture
      * @return Brand
      */
-    public function setPicture(\Application\Sonata\MediaBundle\Entity\Media $picture = null)
+    public function setPicture(\Clinic\MediaBundle\Entity\Media $picture = null)
     {
         $this->picture = $picture;
 
@@ -189,7 +188,7 @@ class Brand
     /**
      * Get picture
      *
-     * @return \Application\Sonata\MediaBundle\Entity\Media
+     * @return \Clinic\MediaBundle\Entity\Media
      */
     public function getPicture()
     {
@@ -225,5 +224,18 @@ class Brand
     public function __toString()
     {
         return (string) $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Brand
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }

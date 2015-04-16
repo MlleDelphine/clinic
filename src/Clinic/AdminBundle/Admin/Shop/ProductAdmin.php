@@ -30,14 +30,20 @@ class ProductAdmin extends Admin{
             ->add('title', 'text', array('label' => 'Nom'))
             ->add('category', "sonata_type_model", array('query' => $queryPC, 'multiple' => false, 'compound' => false, 'expanded' => false))
             ->add('brand', "sonata_type_model", array('query' => $queryB, 'multiple' => false, 'compound' => false, 'expanded' => false))
-            ->add('picture', "sonata_media_type", array('provider' => 'sonata.media.provider.image',
+            ->add('picture', "clinic_media_type", array('provider' => 'sonata.media.provider.image',
                 'context' => 'default',
-                'data_class'   =>  'Application\Sonata\MediaBundle\Entity\Media',
+                'data_class'   =>  'Clinic\MediaBundle\Entity\Media',
                 'required' => false,
                 'label' => 'Image :'))
-            ->add('description')
-            ->add('price')
-            ->add('published')
+            ->add('description', 'genemu_tinymce', array(
+                'required'=>true, // si required true, champ hidden créé par tiny non rempli, formulaire invalidable
+                'label'=>'Description :',
+                'configs' => array(
+                    'entity_encoding'=>'raw',
+                    'plugins' => 'bbcode',
+                )))
+            ->add('price', null, array('label' => 'Prix : ', 'required' => false))
+            ->add('published', null, array('label' => 'Publié : ', 'required' => false))
         ;
     }
 

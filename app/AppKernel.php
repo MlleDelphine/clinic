@@ -19,6 +19,9 @@ class AppKernel extends Kernel
             new Clinic\FrontBundle\ClinicFrontBundle(),
             new Clinic\AdminBundle\ClinicAdminBundle(),
 
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+
+
             // Add your dependencies
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
@@ -36,6 +39,7 @@ class AppKernel extends Kernel
 
             //You need to add this dependency to make media functional
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Clinic\MediaBundle\ClinicMediaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -44,7 +44,7 @@
                                 <li class="toggle-menu"><i class="fa icon_menu"></i></li>
 
                                 <li class="first">
-                                    <a href="#">Accueil</a>
+                                    <a href="{{ path("clinic_home") }}">Accueil</a>
                                     <!--Instead of full class you can type one_two (50%), two_three (66.66%), three_four (75%) -->
                                     <div class="megamenu full">
                                         <!-- Similar to Bootstrap gid system (12 columns) -->
@@ -153,7 +153,7 @@
                                     <a href="#">Produits</a>
                                     <ul class="submenu">
                                         <li><a href="{{ path("clinic_brands") }}">Nos marques</a></li>
-                                        <li><a href="page_about.html">Nos produits</a></li>
+                                        <li><a href="{{ path("clinic_products") }}">Nos produits</a></li>
                                     </ul>
 
                                 </li> <!-- END Pages -->

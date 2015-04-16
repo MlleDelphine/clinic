@@ -98,6 +98,15 @@ class Animal
     {
         return $this->description;
     }
+    
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->title;
+    }
+
 
     /**
      * Set fontcode
@@ -105,9 +114,9 @@ class Animal
      * @param string $fontcode
      * @return Animal
      */
-    public function setFontcode()
+    public function setFontcode($fontcode)
     {
-        $this->fontcode;
+        $this->fontcode = $fontcode;
 
         return $this;
     }
@@ -121,12 +130,4 @@ class Animal
     {
         return $this->fontcode;
     }
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string) $this->title;
-    }
-
 }

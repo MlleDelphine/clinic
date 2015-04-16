@@ -44,7 +44,7 @@ class Product
     private $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Clinic\FrontBundle\Entity\ProductCategory", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="Clinic\FrontBundle\Entity\Brand", inversedBy="products")
      */
     private $brand;
 
@@ -62,17 +62,14 @@ class Product
     private $slug;
 
     /**
-     * @ORM\OneToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumns({
-     *     @ORM\JoinColumn(name="picture", referencedColumnName="id")
-     * })
+     * @ORM\OneToOne(targetEntity="\Clinic\MediaBundle\Entity\Media", inversedBy="product", cascade={"all"})
      */
     private $picture;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="published", type="boolean")
+     * @ORM\Column(name="published", type="boolean", options={"default" = 0})
      */
     private $published;
 
@@ -216,37 +213,15 @@ class Product
     {
         return $this->category;
     }
-
-    /**
-     * Set brand
-     *
-     * @param \Clinic\FrontBundle\Entity\ProductCategory $brand
-     * @return Product
-     */
-    public function setBrand(\Clinic\FrontBundle\Entity\ProductCategory $brand = null)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Get brand
-     *
-     * @return \Clinic\FrontBundle\Entity\ProductCategory 
-     */
-    public function getBrand()
-    {
-        return $this->brand;
-    }
+    
 
     /**
      * Set picture
      *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $picture
+     * @param \Clinic\MediaBundle\Entity\Media $picture
      * @return Product
      */
-    public function setPicture(\Application\Sonata\MediaBundle\Entity\Media $picture = null)
+    public function setPicture(\Clinic\MediaBundle\Entity\Media $picture = null)
     {
         $this->picture = $picture;
 
@@ -256,7 +231,7 @@ class Product
     /**
      * Get picture
      *
-     * @return \Application\Sonata\MediaBundle\Entity\Media
+     * @return \Clinic\MediaBundle\Entity\Media
      */
     public function getPicture()
     {
@@ -307,5 +282,28 @@ class Product
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param \Clinic\FrontBundle\Entity\Brand $brand
+     * @return Product
+     */
+    public function setBrand(\Clinic\FrontBundle\Entity\Brand $brand = null)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return \Clinic\FrontBundle\Entity\Brand 
+     */
+    public function getBrand()
+    {
+        return $this->brand;
     }
 }

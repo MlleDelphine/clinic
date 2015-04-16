@@ -44,6 +44,24 @@ assetic:
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
+genemu_form:
+    tinymce:
+        #script_url: 'js/tinymce/tinymce.min.js'
+        theme:   modern
+        configs:
+            entity_encoding: raw
+            plugins : 'advlist autolink link image lists charmap print preview'
+
+    date: ~
+    image: ~
+    select2:
+        enabled: true
+        configs:
+            placeholder: Choisir une valeur
+            width: element
+            allowClear: false
+            minimumInputLength: 0
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -73,6 +91,7 @@ doctrine:
                     SonataMediaBundle: ~
                     ClinicFrontBundle: ~
                     ClinicAdminBundle: ~
+                    ClinicMediaBundle: ~
                     translatable:
                         type: annotation
                         alias: Gedmo
@@ -100,7 +119,7 @@ swiftmailer:
 sonata_media:
     db_driver: doctrine_orm
     class:
-        media:              Application\Sonata\MediaBundle\Entity\Media
+        media:              Clinic\MediaBundle\Entity\Media #à changer (avant :  Application\Sonata\MediaBundle\Entity\Media)
         gallery:            Application\Sonata\MediaBundle\Entity\Gallery
         gallery_has_media:  Application\Sonata\MediaBundle\Entity\GalleryHasMedia
     default_context: default

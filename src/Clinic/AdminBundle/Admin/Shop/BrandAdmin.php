@@ -20,12 +20,14 @@ class BrandAdmin extends Admin{
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Nom'))
-            ->add('picture', "sonata_media_type", array('provider' => 'sonata.media.provider.image',
+            ->add('picture', 'clinic_media_type', array('provider' => 'sonata.media.provider.image',
                                                         'context' => 'brand_media',
-                                                        'data_class'   =>  'Application\Sonata\MediaBundle\Entity\Media',
+                                                        'data_class'   =>  'Clinic\MediaBundle\Entity\Media',
                                                         'required' => false,
                                                         'label' => 'Image :'))
-            ->add('description') // if no type is specified, SonataAdminBundle tries to guess it
+            ->add('description', 'genemu_tinymce', array(
+                'required'=>true, // si required true, champ hidden créé par tiny non rempli, formulaire invalidable
+                'label'=>'Description :'))
         ;
     }
 
