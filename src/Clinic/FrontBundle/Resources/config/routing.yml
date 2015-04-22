@@ -10,6 +10,10 @@ clinic_brands:
     path:     /brands
     defaults: { _controller: ClinicFrontBundle:Brand:index  }
 
+clinic_brand_products:
+    path:     /brands/{slug}/products
+    defaults: { _controller: ClinicFrontBundle:Brand:products  }
+
 clinic_products:
     path:     /products
     defaults: { _controller: ClinicFrontBundle:Product:index  }

@@ -12,4 +12,22 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProductCategoryRepository extends EntityRepository
 {
+
+    /**
+     * @param Brand $brand
+     * @return array
+     */
+    public function getCategoriesByBrand(Brand $brand, $published = true)
+    {
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.products', 'p')
+            ->leftJoin('p.brand', 'b')
+            ->andWhere('p.published = :published')
+            ->andWhere('b.id = :brandID')
+            ->setParameters(array("brandID"=> $brand->getId(), "published" => $published))
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
 }

@@ -21,4 +21,9 @@ class BrandController extends Controller{
         return $this->render('ClinicFrontBundle:Brand:index.html.twig', array('brands' => $brands));
     }
 
+    public function productsAction(){
+        $em = $this->getDoctrine()->getManager();
+        $pRepo = $em->getRepository('ClinicFrontBundle:Products');
+    }
+
 }

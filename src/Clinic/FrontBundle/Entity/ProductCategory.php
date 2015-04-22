@@ -116,12 +116,18 @@ class ProductCategory
     /**
      * Add products
      *
-     * @param \Clinic\FrontBundle\Entity\Product $products
+     * @param \Clinic\FrontBundle\Entity\Product $product
      * @return ProductCategory
      */
-    public function addProduct(\Clinic\FrontBundle\Entity\Product $products)
+    public function addProduct(\Clinic\FrontBundle\Entity\Product $product)
     {
-        $this->products[] = $products;
+        $this->products[] = $product;
+
+        // On lie le produit à la catégorie /!\ que de ce côté là !
+        $product->setCategory($this);
+
+        // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :
+        // $product->setCategory(null);
 
         return $this;
     }

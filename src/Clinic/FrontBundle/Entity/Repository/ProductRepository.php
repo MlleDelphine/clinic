@@ -2,6 +2,7 @@
 
 namespace Clinic\FrontBundle\Entity\Repository;
 
+use Clinic\FrontBundle\Entity\ProductCategory;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -16,15 +17,51 @@ class ProductRepository extends EntityRepository
      * @param Category $category
      * @return array
      */
-    public function getPublished()
+    public function getPublished($published = true)
     {
         $query = $this->createQueryBuilder('p')
             ->orderBy('p.created', 'DESC')
-            ->andWhere('p.published = true')
+            ->andWhere('p.published = :published')
+            ->setParameter("published", $published)
             ->getQuery();
 
         return $query->getResult();
     }
+
+    /**
+     * @param Brand $brand
+     * @return array
+     */
+    public function getProductsByBrand(Brand $brand, $published = true)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.brand', 'b')
+            ->orderBy('p.created', 'DESC')
+            ->andWhere('p.published = :published')
+            ->andWhere('b.id = :brandID')
+            ->setParameters(array("brandID"=> $brand->getId(), "published" => $published))
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
+    /**
+     * @param Category $category
+     * @return array
+     */
+    public function getProductsByCategory(ProductCategory $category, $published = true)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.category', 'c')
+            ->orderBy('p.created', 'DESC')
+            ->andWhere('p.published = :published')
+            ->andWhere('c.id = :catID')
+            ->setParameters(array("catID" => $category->getId(), "published" => $published))
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
 
 
 }
