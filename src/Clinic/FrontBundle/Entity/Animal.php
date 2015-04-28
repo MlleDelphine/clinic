@@ -42,6 +42,11 @@ class Animal
      */
     private $fontcode;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Clinic\FrontBundle\Entity\Animal", mappedBy="animals")
+     */
+    private $products;
+
 
     /**
      * Get id
@@ -129,5 +134,45 @@ class Animal
     public function getFontcode()
     {
         return $this->fontcode;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add products
+     *
+     * @param \Clinic\FrontBundle\Entity\Animal $products
+     * @return Animal
+     */
+    public function addProduct(\Clinic\FrontBundle\Entity\Animal $products)
+    {
+        $this->products[] = $products;
+
+        return $this;
+    }
+
+    /**
+     * Remove products
+     *
+     * @param \Clinic\FrontBundle\Entity\Animal $products
+     */
+    public function removeProduct(\Clinic\FrontBundle\Entity\Animal $products)
+    {
+        $this->products->removeElement($products);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }

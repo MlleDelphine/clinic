@@ -3,6 +3,7 @@
 namespace Clinic\FrontBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Clinic\FrontBundle\Entity\Brand;
 
 /**
  * ProductCategoryRepository

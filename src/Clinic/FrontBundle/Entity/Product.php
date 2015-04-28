@@ -44,6 +44,13 @@ class Product
     private $category;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Clinic\FrontBundle\Entity\Animal", inversedBy="products")
+     * @ORM\JoinTable(name="products_animals")
+     */
+    private $animals;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Clinic\FrontBundle\Entity\Brand", inversedBy="products")
      */
     private $brand;
@@ -92,7 +99,7 @@ class Product
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -115,7 +122,7 @@ class Product
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -138,7 +145,7 @@ class Product
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -161,7 +168,7 @@ class Product
     /**
      * Get price
      *
-     * @return float 
+     * @return float
      */
     public function getPrice()
     {
@@ -184,7 +191,7 @@ class Product
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -207,13 +214,13 @@ class Product
     /**
      * Get category
      *
-     * @return \Clinic\FrontBundle\Entity\ProductCategory 
+     * @return \Clinic\FrontBundle\Entity\ProductCategory
      */
     public function getCategory()
     {
         return $this->category;
     }
-    
+
 
     /**
      * Set picture
@@ -254,7 +261,7 @@ class Product
     /**
      * Get published
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPublished()
     {
@@ -277,7 +284,7 @@ class Product
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -300,10 +307,43 @@ class Product
     /**
      * Get brand
      *
-     * @return \Clinic\FrontBundle\Entity\Brand 
+     * @return \Clinic\FrontBundle\Entity\Brand
      */
     public function getBrand()
     {
         return $this->brand;
+    }
+
+    /**
+     * Add animals
+     *
+     * @param \Clinic\FrontBundle\Entity\Animal $animals
+     * @return Product
+     */
+    public function addAnimal(\Clinic\FrontBundle\Entity\Animal $animals)
+    {
+        $this->animals[] = $animals;
+
+        return $this;
+    }
+
+    /**
+     * Remove animals
+     *
+     * @param \Clinic\FrontBundle\Entity\Animal $animals
+     */
+    public function removeAnimal(\Clinic\FrontBundle\Entity\Animal $animals)
+    {
+        $this->animals->removeElement($animals);
+    }
+
+    /**
+     * Get animals
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAnimals()
+    {
+        return $this->animals;
     }
 }

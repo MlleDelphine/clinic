@@ -1,0 +1,37 @@
+{# src/Clinic/FrontBundle/Resources/views/Brand/products.html.twig #}
+{% extends "ClinicFrontBundle::main.html.twig" %}
+
+{% block title %}{{ parent() }} - Produits {{ brand.title }}{% endblock %}
+
+
+{% block front_body %}
+       <!-- Parallax Section -->
+    <section class="section-bg section-larger bg-img bg11 stellar"  data-stellar-background-ratio="0.4">
+        <div class="bg-overlay op8"></div>
+        <div class="container">
+            <div class="row mt20 mb20">
+                <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                    <h2 class="title-medium text-center color-on-img title-shadow-b">{{  brand.title }}</h2>
+                    <div class="br-bottom-center mb30"></div>
+                    <p class="p-large mb40 text-center color-on-img">{{ brand.description }}</p>
+                    <div class="text-center"><a href="#" class="btn-slider">get quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {%  for category in categories %}
+
+    <section class="white-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="title-border">{{ category.title }}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+        {% endfor %}
+
+
+{%  endblock %}

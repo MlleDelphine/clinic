@@ -21,9 +21,16 @@ class BrandController extends Controller{
         return $this->render('ClinicFrontBundle:Brand:index.html.twig', array('brands' => $brands));
     }
 
-    public function productsAction(){
+    public function productsAction($slug){
         $em = $this->getDoctrine()->getManager();
-        $pRepo = $em->getRepository('ClinicFrontBundle:Products');
+        $catRepo = $em->getRepository('ClinicFrontBundle:ProductCategory');
+        $brandRepo = $em->getRepository("ClinicFrontBundle:Brand");
+
+        $brand = $brandRepo->findOneBy(array('slug' => $slug));
+
+        $categories = $catRepo->getCategoriesByBrand($brand);
+
+        return $this->render('ClinicFrontBundle:Brand:products.html.twig', array('brand' => $brand, 'categories' => $categories));
     }
 
 }

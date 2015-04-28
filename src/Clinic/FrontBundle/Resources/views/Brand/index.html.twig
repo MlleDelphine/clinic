@@ -44,7 +44,7 @@
                                                 </div>
                                                 <p>{{ brand.description|raw }}</p>
                                                 <div class="clearfix">
-                                                    <div class="pull-left"><a href="blog_post_sidebar.html" class="read-more">Voir les produits</a></div>
+                                                    <div class="pull-left"><a href="{{ path("clinic_brand_products", {slug: brand.slug}) }}" class="read-more">Voir les produits</a></div>
                                                     <div class="pull-right"><i class="fa fa-camera post-format"></i></div>
                                                 </div>
                                             </div>

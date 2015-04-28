@@ -24,12 +24,16 @@ class ProductAdmin extends Admin{
         $queryB = $this->modelManager->getEntityManager('Clinic\FrontBundle\Entity\Brand')
             ->createQuery('SELECT b FROM ClinicFrontBundle:Brand b ORDER BY b.title ASC');
 
+        $queryA = $this->modelManager->getEntityManager('Clinic\FrontBundle\Entity\Animal')
+            ->createQuery('SELECT a FROM ClinicFrontBundle:Animal a ORDER BY a.title ASC');
+
 
 
         $formMapper
             ->add('title', 'text', array('label' => 'Nom'))
             ->add('category', "sonata_type_model", array('query' => $queryPC, 'multiple' => false, 'compound' => false, 'expanded' => false))
             ->add('brand', "sonata_type_model", array('query' => $queryB, 'multiple' => false, 'compound' => false, 'expanded' => false))
+            ->add('animals', "sonata_type_model", array('query' => $queryA, 'multiple' => true, 'compound' => true, 'expanded' => true))
             ->add('picture', "clinic_media_type", array('provider' => 'sonata.media.provider.image',
                 'context' => 'default',
                 'data_class'   =>  'Clinic\MediaBundle\Entity\Media',
