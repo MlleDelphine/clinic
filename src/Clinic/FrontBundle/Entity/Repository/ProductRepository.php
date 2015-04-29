@@ -4,6 +4,7 @@ namespace Clinic\FrontBundle\Entity\Repository;
 
 use Clinic\FrontBundle\Entity\ProductCategory;
 use Doctrine\ORM\EntityRepository;
+use Clinic\FrontBundle\Entity\Brand;
 
 /**
  * ProductRepository
@@ -57,6 +58,25 @@ class ProductRepository extends EntityRepository
             ->andWhere('p.published = :published')
             ->andWhere('c.id = :catID')
             ->setParameters(array("catID" => $category->getId(), "published" => $published))
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
+    /**
+     * @param Brand $brand
+     * @return array
+     */
+    public function getProductsByBrandAndCategory(Brand $brand, ProductCategory $category, $published = true)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->join('p.brand', 'b')
+            ->join('p.category', 'c')
+            ->orderBy('p.created', 'DESC')
+            ->andWhere('p.published = :published')
+            ->andWhere('b.id = :brandID')
+            ->andWhere('c.id = :catID')
+            ->setParameters(array("brandID"=> $brand->getId(), "catID" => $category->getId(), "published" => $published))
             ->getQuery();
 
         return $query->getResult();

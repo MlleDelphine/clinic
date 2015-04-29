@@ -35,7 +35,7 @@ class ProductAdmin extends Admin{
             ->add('brand', "sonata_type_model", array('query' => $queryB, 'multiple' => false, 'compound' => false, 'expanded' => false))
             ->add('animals', "sonata_type_model", array('query' => $queryA, 'multiple' => true, 'compound' => true, 'expanded' => true))
             ->add('picture', "clinic_media_type", array('provider' => 'sonata.media.provider.image',
-                'context' => 'default',
+                'context' => 'product_media',
                 'data_class'   =>  'Clinic\MediaBundle\Entity\Media',
                 'required' => false,
                 'label' => 'Image :'))

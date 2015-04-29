@@ -56,19 +56,30 @@
                         </div>
                     </div>
                     <div class="row">
-                        {%  for product in products %}
-                        <div class="col-sm-6 col-md-3 ">
-                            <div class="shop-product">
-                                <a href="shop_product_sidebar.html" class="shop-image">
-                                    <img src="{% path product.picture, 'small' %}">
-                                    <div class="shop-prices">
-                                        <ins class="shop-price">{{ product.price }}€</ins>
+                        {%  for key, categoryProducts in categoriesProducts %}
+                            <section class="white-section">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h2 class="title-border">{{ categoryProducts.category.title }}</h2>
+                                        </div>
                                     </div>
-                                </a>
-                                <h4 class="shop-description">{{ product.title }}</h4>
-                            </div>
-                        </div>
+                                </div>
+                            </section>
+                            {%  for product in categoryProducts.products %}
+                                <div class="col-sm-6 col-md-3 ">
+                                    <div class="shop-product">
+                                        <a href="shop_product_sidebar.html" class="shop-image">
+                                            <img src="{% path product.picture, 'small' %}">
+                                            <div class="shop-prices">
+                                                <ins class="shop-price">{{ product.price }}€</ins>
+                                            </div>
+                                        </a>
+                                        <h4 class="shop-description">{{ product.title }}</h4>
+                                    </div>
+                                </div>
                             {% endfor %}
+                        {% endfor %}
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
