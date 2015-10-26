@@ -1,0 +1,48 @@
+services:
+#    clinic_admin.example:
+#        class: Clinic\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    sonata.admin.brand:
+        class: Clinic\AdminBundle\Admin\Shop\BrandAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Boutique", label: "Marque" }
+        arguments:
+            - ~
+            - Clinic\FrontBundle\Entity\Brand
+            - ~
+        calls:
+            - [ setTranslationDomain, [ClinicFrontBundle]]
+
+    sonata.admin.productcategory:
+        class: Clinic\AdminBundle\Admin\Shop\ProductCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Boutique", label: "Catégorie" }
+        arguments:
+            - ~
+            - Clinic\FrontBundle\Entity\ProductCategory
+            - ~
+        calls:
+            - [ setTranslationDomain, [ClinicFrontBundle]]
+
+    sonata.admin.product:
+        class: Clinic\AdminBundle\Admin\Shop\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Boutique", label: "Produit" }
+        arguments:
+            - ~
+            - Clinic\FrontBundle\Entity\Product
+            - ~
+        calls:
+            - [ setTranslationDomain, [ClinicFrontBundle]]
+
+    sonata.admin.animal:
+        class: Clinic\AdminBundle\Admin\Animal\AnimalAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Animaux", label: "Animal" }
+        arguments:
+            - ~
+            - Clinic\FrontBundle\Entity\Animal
+            - ~
+        calls:
+            - [ setTranslationDomain, [ClinicFrontBundle]]
+

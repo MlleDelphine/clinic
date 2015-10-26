@@ -1,0 +1,72 @@
+{# src/Clinic/FrontBundle/Resources/views/Brand/index.html.twig #}
+{% extends "ClinicFrontBundle::main.html.twig" %}
+
+{% block title %}{{ parent() }} - Nos marques{% endblock %}
+
+
+{% block front_body %}
+    {#Display brands slider#}
+    {{ include('ClinicFrontBundle:Brand:brandslider.html.twig') }}
+    {#Search form #}
+    <div class="search-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="pull-right">
+                        <form action="#" role="form" class="pull-right">
+                            <input type="text" class="input-search" placeholder="Search and hit enter">
+                            <button type="submit" class="hidden"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Brands list #}
+    <section class="section-page section-bg section-gray mb0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="portfolio-isotope">
+                        <div class="row">
+                            <div class="portfolio portfolio-fit-row">
+                                {% for brand in brands %}
+                                    <div class="col-sm-6 col-md-4 el">
+                                        <div class="blog-item">
+                                            <div class="blog-image">
+                                                <img src="{% path brand.picture, 'small' %}">
+                                            </div>
+                                            <div class="blog-caption">
+                                                <h3 class="post-title">{{ brand.title }}</h3>
+                                                <div class="sub-post-title">
+
+                                                </div>
+                                                <p>{{ brand.description|raw }}</p>
+                                                <div class="clearfix">
+                                                    <div class="pull-left"><a href="{{ path("clinic_brand_products", {slug: brand.slug}) }}" class="read-more">Voir les produits</a></div>
+                                                    <div class="pull-right"><i class="fa fa-shopping-cart post-format"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- END Blog Item -->
+                                {% endfor %}
+                            </div>
+                        </div> <!-- END portfolio Container -->
+                    </div> <!-- END Portfolio Isotope -->
+                    <div class="mb20"></div>
+                    <ul class="pagination pagination-2 dark">
+                        <li class="disabled"><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section> <!-- END Blog Page-->
+
+{% endblock %}

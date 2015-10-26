@@ -1,5 +1,34 @@
 <!-- Header -->
 <div class="h-wrapper">
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    {#<ul class="top-menu">#}
+                    {#<li><a href="#">About</a></li>#}
+                    {#<li><a href="#">Features</a></li>#}
+                    {#<li><a href="#">Pricing</a></li>#}
+                    {#<li><a href="#">Terms</a></li>#}
+                    {#</ul>#}
+                    <div class="top-menu"><i class="fa fa-heart"> |</i> Site internet de la Clinique vétérinaire de l'Ecluse, à Vire 14500</div>
+                </div>
+                <!-- This column is hidden on mobiles -->
+                <div class="col-sm-6">
+                    <div class="pull-right hidden-xs">
+                        <ul class="social-icon unstyled">
+                            <li>
+                                <i class="fa fa-user-md" style="width: inherit !important;"><span style='font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif'> | Faites confiance au Docteur vétérinaire Nathalie Graftieaux Leredde</span></i>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header -->
     <header class="header-wrapper header-transparent with-topbar">
         <div class="main-header">
             <div class="container">
@@ -15,7 +44,7 @@
                                 <li class="toggle-menu"><i class="fa icon_menu"></i></li>
 
                                 <li class="first">
-                                    <a href="#">Home</a>
+                                    <a href="{{ path("clinic_home") }}">Accueil</a>
                                     <!--Instead of full class you can type one_two (50%), two_three (66.66%), three_four (75%) -->
                                     <div class="megamenu full">
                                         <!-- Similar to Bootstrap gid system (12 columns) -->
@@ -63,7 +92,7 @@
                                     </div> <!-- END Mega Menu -->
                                 </li> <!-- END Home -->
                                 <li>
-                                    <a href="#">Features</a>
+                                    <a href="#">Prestations</a>
                                     <div class="megamenu full">
                                         <div class="row">
                                             <div class="col-4">
@@ -121,66 +150,15 @@
                                     </div>
                                 </li> <!-- END Features -->
                                 <li>
-                                    <a href="#">Pages</a>
-                                    <div class="megamenu full">
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <ul class="megamenu-list">
-                                                    <li class="title">Pages</li>
-                                                    <li><a href="page_about.html">About 1</a></li>
-                                                    <li><a href="page_about_2.html">About 2</a></li>
-                                                    <li><a href="page_about_3.html">About 3</a></li>
-                                                    <li><a href="page_about_4.html">About 4</a></li>
-                                                    <li><a href="page_team.html">Team 1</a></li>
-                                                    <li><a href="page_team_2.html">Team 2</a></li>
-                                                    <li><a href="page_team_3.html">Team 3</a></li>
-                                                    <li><a href="page_team_4.html">Team 4</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-3">
-                                                <ul class="megamenu-list">
-                                                    <li class="title">that you</li>
-                                                    <li><a href="page_services.html">Services 1</a></li>
-                                                    <li><a href="page_services_2.html">Services 2</a></li>
-                                                    <li><a href="page_services_3.html">Services 3</a></li>
-                                                    <li><a href="page_services_4.html">Services 4</a></li>
-                                                    <li><a href="page_contact.html">Contact 1</a></li>
-                                                    <li><a href="page_contact_2.html">Contact 2</a></li>
-                                                    <li><a href="page_contact_3.html">Contact 3</a></li>
-                                                    <li><a href="page_clients.html">Clients</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-3">
-                                                <ul class="megamenu-list">
-                                                    <li class="title">really</li>
-                                                    <li><a href="page_pricing.html">Pricing</a></li>
-                                                    <li><a href="page_faq.html">FAQ 1</a></li>
-                                                    <li><a href="page_faq_2.html">FAQ 2</a></li>
-                                                    <li><a href="page_sign_in.html">Sign In</a></li>
-                                                    <li><a href="page_sign_up.html">Sign Up</a></li>
-                                                    <li><a href="page_404.html">404 Not Found</a></li>
-                                                    <li><a href="page_403.html">403 Forbidden</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-3">
-                                                <ul class="megamenu-list">
-                                                    <li class="title">need</li>
-                                                    <li><a href="page_sidebar.html">Sidebar</a></li>
-                                                    <li><a href="page_sidebars.html">Sidebars</a></li>
-                                                    <li><a href="page_sidebar_navigation.html">Sidebar Navigation</a></li>
+                                    <a href="#">Produits</a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ path("clinic_brands") }}">Nos marques</a></li>
+                                        <li><a href="{{ path("clinic_products") }}">Nos produits</a></li>
+                                    </ul>
 
-                                                    <li> &nbsp; </li>
-                                                    <li class="title">Simple Page Headers</li>
-                                                    <li><a href="page_sidebar.html">Small</a></li>
-                                                    <li><a href="page_sidebar_navigation.html">Centered</a></li>
-                                                    <li><a href="page_sidebars.html">Simple (Dark)</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div> <!-- END Mega Menu -->
                                 </li> <!-- END Pages -->
                                 <li>
-                                    <a href="#">Blog</a>
+                                    <a href="#">Planning</a>
                                     <ul class="submenu">
                                         <li><a href="blog_list_small.html">List Small</a></li>
                                         <li><a href="blog_list_large.html">List Large</a></li>
@@ -191,9 +169,22 @@
                                         <li><a href="blog_post.html">Post</a></li>
                                         <li><a href="blog_post_sidebar.html">Post Sidebar</a></li>
                                     </ul>
-                                </li> <!-- END Blog -->
+                                </li>
                                 <li>
-                                    <a href="#">Portfolio</a>
+                                    <a href="#">L'équipe</a>
+                                    <ul class="submenu">
+                                        <li><a href="blog_list_small.html">List Small</a></li>
+                                        <li><a href="blog_list_large.html">List Large</a></li>
+                                        <li><a href="blog_grid.html">Grid</a></li>
+                                        <li><a href="blog_grid_sidebar.html">Grid Sidebar</a></li>
+                                        <li><a href="blog_masonry.html">Masonry</a></li>
+                                        <li><a href="blog_masonry_sidebar.html">Masonry Sidebar</a></li>
+                                        <li><a href="blog_post.html">Post</a></li>
+                                        <li><a href="blog_post_sidebar.html">Post Sidebar</a></li>
+                                    </ul>
+                                </li><!-- END Blog -->
+                                <li>
+                                    <a href="#">Galerie</a>
                                     <ul class="submenu">
                                         <li><a href="portfolio.html">Portfolio</a></li>
                                         <li><a href="portfolio_2.html">2 Columns</a></li>
@@ -207,7 +198,7 @@
                                     </ul>
                                 </li> <!-- END Portfolio -->
                                 <li>
-                                    <a href="#">Shop</a>
+                                    <a href="#">Actu</a>
                                     <ul class="submenu">
                                         <li><a href="shop_products.html">Products</a></li>
                                         <li><a href="shop_products_sidebar.html">Products Sidebar</a></li>
@@ -217,10 +208,19 @@
                                         <li><a href="shop_cart.html">Cart</a></li>
                                         <li><a href="shop_checkout.html">Checkout</a></li>
                                     </ul>
-                                </li> <!-- END Shop -->
-                                <li><a href="shortcodes.html">Shortcodes</a></li>
-                                <!-- Always include last class to link to solve some padding issues -->
-                                <li><a class="last" href="http://abusinesstheme.com/documentation/palas/index.html" target="_blank">Documentation</a></li>
+                                </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                    <ul class="submenu">
+                                        <li><a href="shop_products.html">Products</a></li>
+                                        <li><a href="shop_products_sidebar.html">Products Sidebar</a></li>
+                                        <li><a href="shop_product.html">Product</a></li>
+                                        <li><a href="shop_product_sidebar.html">Product Sidebar</a></li>
+                                        <li><a href="shop_account.html">Account</a></li>
+                                        <li><a href="shop_cart.html">Cart</a></li>
+                                        <li><a href="shop_checkout.html">Checkout</a></li>
+                                    </ul>
+                                </li><!-- END Shop -->
                             </ul>
                         </nav>
                     </div>
@@ -231,5 +231,3 @@
 
 </div>
 
-<!-- Do not remove this class -->
-<div class="push-top"></div>

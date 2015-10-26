@@ -1,0 +1,8 @@
+services:
+    clinic.media.form.type.media:
+        class: "Clinic\MediaBundle\Form\MediaType"
+        arguments:
+            - "@sonata.media.pool"
+            - "Clinic\MediaBundle\Entity\Media"
+        tags:
+            - { name: "form.type",  alias: "clinic_media_type" }

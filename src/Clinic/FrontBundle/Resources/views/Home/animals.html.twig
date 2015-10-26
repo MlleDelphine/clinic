@@ -1,0 +1,18 @@
+{# src/Clinic/FrontBundle/Resources/views/Home/animals.html.twig #}
+<section class="section-bg section-gray mt40">
+    <div class="container">
+        <div class="row col-p30 mb40">
+            {%  for animal in animals %}
+                <div class="col-sm-4 sm-box2">
+                    <div class="box-services-b">
+                        <div class="box-left"><i class="fa animals-font fa-style1 circle">{{  animal.fontcode }}</i></div>
+                        <div class="box-right">
+                            <h3 class="title-small">{{ animal.title }} <span class="link-read-more">Venez !</span></h3>
+                            <p class="mb10">{{ animal.description|raw }}</p>
+                        </div>
+                    </div>
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+</section>
