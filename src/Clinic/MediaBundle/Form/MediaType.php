@@ -9,7 +9,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 /**
  * Description of MediaType
  *
- * @author Nicolas de Marqué <nicolas.demarque@gmail.com>
  */
 class MediaType extends \Sonata\MediaBundle\Form\Type\MediaType
 {

@@ -27,6 +27,19 @@ class Media extends BaseMedia
      */
     private $identification_name;
 
+    /**
+     * @var \Clinic\FrontBundle\Entity\Brand
+     * @ORM\OneToOne(targetEntity="Clinic\FrontBundle\Entity\Brand", mappedBy="picture", cascade={"all"})
+     */
+    private $brand;
+
+    /**
+     * @var \Clinic\FrontBundle\Entity\Product
+     * @ORM\OneToOne(targetEntity="Clinic\FrontBundle\Entity\Product", mappedBy="picture", cascade={"all"})
+     */
+    private $product;
+
+
 
     /**
      * Get id
@@ -60,17 +73,6 @@ class Media extends BaseMedia
     {
         return $this->identification_name;
     }
-    /**
-     * @var \Clinic\FrontBundle\Entity\Brand
-     * @ORM\OneToOne(targetEntity="Clinic\FrontBundle\Entity\Brand", mappedBy="picture", cascade={"all"})
-     */
-    private $brand;
-
-    /**
-     * @var \Clinic\FrontBundle\Entity\Product
-     * @ORM\OneToOne(targetEntity="Clinic\FrontBundle\Entity\Product", mappedBy="picture", cascade={"all"})
-     */
-    private $product;
 
     /**
      * Set brand
